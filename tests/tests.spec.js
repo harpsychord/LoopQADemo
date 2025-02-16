@@ -17,13 +17,12 @@ logins.forEach(({environment, loginData}) => {
     
       // Authenticate and access application.
       await login.login();
-    
-      const project = new projectPage(page);
   
       // Navigate to the necessary project.
+      const project = new projectPage(page);
       await project.navigateToProject(testData.application);
   
-      // Scrape all of the relevant data.
+      // Get all of the relevant data.
       const fullData = await project.getColumnData(testData.application);
   
       // We use this to select the column we are expecting to find our card under.
@@ -35,13 +34,13 @@ logins.forEach(({environment, loginData}) => {
       var cardToFind = columnToFilter?.cards.find(function(card) {
         return card.cardName === testData.columns[0].cards[0].cardName;
       });
+
+      // Check to see if the card name we found matches what we expect.
+      await expect(cardToFind?.cardName, "Card '" + testData.columns[0].cards[0].cardName + "' found under column '" + testData.columns[0].columnName + "'").toContain(testData.columns[0].cards[0].cardName)
     
       var tagsToFind = cardToFind?.tags.filter(function(tag) {
         return tag.tagName;
       });
-    
-      // Check to see if the card name we found matches what we expect.
-      await expect(cardToFind?.cardName, "Card '" + testData.columns[0].cards[0].cardName + "' found under column '" + testData.columns[0].columnName + "'").toContain(testData.columns[0].cards[0].cardName)
     
       // Check to see if the card's tag(s) match what we expect.
       await expect(tagsToFind, "Tags: " + JSON.stringify(tagsToFind) + " equals our test tags: " + JSON.stringify(testData.columns[0].cards[0].tags)).toEqual(testData.columns[0].cards[0].tags);
