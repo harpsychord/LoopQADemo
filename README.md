@@ -4,6 +4,7 @@
 
 ### Objectives:
 * Maximum code re-use with data-driven testing.
+* Playwright with Javascript.
 * Scalability - test cases are simple to add, same for targeted environments (Dev/QA/Prod/etc).
 * Parallelable - because of test case parameterization it is possible to run this across as many independent workers as you want, limited of course by the number of test cases.
 * All test cases pass, of course.
