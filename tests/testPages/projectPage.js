@@ -29,9 +29,8 @@ exports.projectPage = class projectPage {
         for (let i = 0; i < columnCount; i++) {
             const columnName = ((await columnList.nth(i).locator('.mb-4').innerText()).split(' (')[0]);
 
-            // This was a tricky one.  While we did find the flex column with mb-2 (the card identifiers)
-            // without locating the class 'p-4' we wouldn't be able to iterate over each card.
-            const cardList = columnList.nth(i).locator('.flex-col', { has: this.page.locator('.mb-2') }).locator('.p-4');
+            // We can use the same kind of logic for our columns as for our cards under each column.
+            const cardList = columnList.nth(i).locator('.p-4', { has: this.page.locator('.mb-2') });
             const cardCount = await cardList.count();
 
             var cards = [];
