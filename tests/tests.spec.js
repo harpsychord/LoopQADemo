@@ -35,19 +35,16 @@ logins.forEach(({environment, loginData}) => {
       var cardToFind = columnToFilter?.cards.find(function(card) {
         return card.cardName === testData.columns[0].cards[0].cardName;
       });
-  
-      // Check to see if our card was found.
-      expect(cardToFind, "Card '" + testData.columns[0].cards[0].cardName + "' not found under column '" + testData.columns[0].columnName + "'").toBeTruthy();
     
       var tagsToFind = cardToFind?.tags.filter(function(tag) {
         return tag.tagName;
       });
     
       // Check to see if the card name we found matches what we expect.
-      await expect(cardToFind?.cardName).toContain(testData.columns[0].cards[0].cardName)
+      await expect(cardToFind?.cardName, "Card '" + testData.columns[0].cards[0].cardName + "' found under column '" + testData.columns[0].columnName + "'").toContain(testData.columns[0].cards[0].cardName)
     
       // Check to see if the card's tag(s) match what we expect.
-      await expect(tagsToFind).toEqual(testData.columns[0].cards[0].tags);
+      await expect(tagsToFind, "Tags: " + JSON.stringify(tagsToFind) + " equals our test tags: " + JSON.stringify(testData.columns[0].cards[0].tags)).toEqual(testData.columns[0].cards[0].tags);
   
     });
   });
