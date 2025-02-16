@@ -12,6 +12,7 @@
 ### Limitations:
 * No secure store for passwords.  Thankfully it's just a dummy site for use as a tech demo.
 * Time.  Perfect is the enemy of progress so this is a minimal viable product, or MVP.
+* Commits directly to main, a big no no.  See above note on time.
 
 ### Installation and Running:
 * Clone repository
