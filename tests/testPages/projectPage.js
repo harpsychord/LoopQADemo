@@ -37,10 +37,11 @@ exports.projectPage = class projectPage {
             var cards = [];
             for (let j = 0; j < cardCount; j++) {
 
+                // Grab the card title/name.
                 const cardElement = cardList.nth(j).locator('.mb-2');
                 const cardName = await cardElement.innerText();
 
-                // Now we need to grab the tags
+                // Now we need to grab the tags.
                 const cardTags = cardList.nth(j).locator('.mb-3').locator('//span');
                 const cardTagCount = await cardTags.count();
 
@@ -48,10 +49,12 @@ exports.projectPage = class projectPage {
                 var tags = [];
                 for (let k = 0; k < cardTagCount; k++) {
                     const tag = await cardTags.nth(k).innerText();
+                    
+                    // Add the tags to the array
                     tags.push({ tagName: tag });
                 }
                 
-                // Add the card with their tag to the list of cards.
+                // Add the card with their tag(s) to the list of cards.
                 cards.push({ cardName: cardName, tags });
             }
 
@@ -59,7 +62,7 @@ exports.projectPage = class projectPage {
             columns.push({ columnName: columnName, cards });
         }
 
-        // Finally, put all of the column data into our object for the given project name.
+        // Finally, put all of the column data into our object for the given project/application name.
         var fullData = { application: projectName, columns };
         return fullData;
     }
