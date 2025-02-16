@@ -1,8 +1,11 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
+
+// Import POM classes.
 import { loginPage } from './testPages/loginPage.js'
 import { projectPage } from './testPages/projectPage.js'
 
+// Import Data classes that will drive the test below.
 import { testCases } from './testData/testData.js'
 import { logins } from './testData/loginData.js'
 
