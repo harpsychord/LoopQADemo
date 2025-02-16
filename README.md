@@ -1,5 +1,7 @@
 ## LoopQADemo - A simple technical evaluation for the Loopers at LoopQA
 
+Created by Harper Sanford (harper.s.sanford@gmail.com), February 2025, under an Unlicence license.
+
 ### Tech Evaluation instructions that I followed can be found [here](https://docs.google.com/document/d/1oGwPbnNImNIlEkwdMcBCUhgQEPclkDss8iFZP2A8AQ0).
 
 ### Objectives:
