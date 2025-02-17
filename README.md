@@ -22,7 +22,7 @@ Created by Harper Sanford (harper.s.sanford@gmail.com), February 2025, under an 
 * npx playwright test
 * npx playwright show-report
 
-#### This project was made on a 512GB LED Steam Deck.  Feel free to ask me about the setup in future calls. :)
+#### This project was made on a 512GB LCD Steam Deck.  Feel free to ask me about the setup in future calls. :)
 
 Bonus meme picture due to having to root around HTML with no test IDs present:
 
